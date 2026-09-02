@@ -12,8 +12,8 @@ void welcome(string name){
     cout << "2. Division" << endl;
     cout << "3. Addition" << endl;
     cout << "4. Subtraction" << endl;
-    cout << "5. Square root" << endl;
-    cout << "6. Cube root" << endl;
+    cout << "5. Square" << endl;
+    cout << "6. Cube" << endl;
     cout << endl;
     cout << "Type the number of the function you want:" << endl;
 }
