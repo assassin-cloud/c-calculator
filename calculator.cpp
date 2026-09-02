@@ -14,6 +14,7 @@ void welcome(string name){
     cout << "4. Subtraction" << endl;
     cout << "5. Square" << endl;
     cout << "6. Cube" << endl;
+    cout << "7. Exit" << endl;
     cout << endl;
     cout << "Type the number of the function you want:" << endl;
 }
@@ -57,6 +58,13 @@ int main() {
         welcome(user);
 
     cin >> calc;
+    if(cin.fail()){
+        cout << "Invalid Input" << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
+    }
+    else{
+        
     if(calc == 5){
         double *p = new double;
         cout << "Input number: ";
@@ -78,6 +86,10 @@ int main() {
         ptr = nullptr;
         cout << "To continue type 'y'or 'q' to exit:" << endl;
         cin >> end;
+    }
+
+    else if(calc == 7){
+        break;
     }
 
     else if(calc == 1 || calc == 2 || calc == 3 || calc == 4){
@@ -117,6 +129,7 @@ int main() {
         cout << "Invalid Input" << endl;
     }
 
+    }
     }
 
        }
