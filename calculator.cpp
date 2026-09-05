@@ -1,12 +1,10 @@
 #include <iostream>
 using namespace std;
 
-void welcome(string name){
+void welcome(){
     cout << "|==========|" << endl;
     cout << "|CALCULATOR|" << endl;
     cout << "|==========|" << endl;
-    cout << endl;
-    cout << "WELCOME " << name << endl;
     cout << endl;
     cout << "1. Multiplication" << endl;
     cout << "2. Division" << endl;
@@ -17,6 +15,13 @@ void welcome(string name){
     cout << "7. Exit" << endl;
     cout << endl;
     cout << "Type the number of the function you want:" << endl;
+}
+
+void goback(string i){
+    cout << endl;
+    cout << "Type anything to back: " << endl;
+    cin >> i;
+    welcome();
 }
 
 void Multiplication(double x, double y){
@@ -51,11 +56,10 @@ int main() {
        cout << "input password: " << endl;
        cin >> pass;
 
-       if(pass == "root" || pass == "ROOT") {
-        end = "y";
+       if(pass == "root" || pass == "ROOT"){
+        welcome();
 
-    while (end == "y") {
-        welcome(user);
+    while (true) {
 
     cin >> calc;
     if(cin.fail()){
@@ -73,8 +77,7 @@ int main() {
         cout << "answer: " << (*p)*(*p) << endl;
         delete p;
         p = nullptr;
-        cout << "To continue type 'y'or 'q' to exit:" << endl;
-        cin >> end;
+        goback(end);
     }
 
     else if(calc == 6){
@@ -84,8 +87,7 @@ int main() {
         cout << "answer: " << (*ptr)*(*ptr)*(*ptr) << endl;
         delete ptr;
         ptr = nullptr;
-        cout << "To continue type 'y'or 'q' to exit:" << endl;
-        cin >> end;
+        goback(end);
     }
 
     else if(calc == 7){
@@ -102,27 +104,31 @@ int main() {
        
     if(calc == 3) {
         addition(a,b);
+        goback(end);
     }
 
     else if(calc == 4){
         subtraction(a,b);
+        goback(end);
     }
 
     else if(calc == 2){
         if(b == 0) {
         	cout << "Can't divide by zero" << endl;
-        	break;
+        	cout << endl;
+            welcome();
         }
         else{
         division(a,b);
+        goback(end);
         }
     }
 
     else if(calc == 1){
         Multiplication(a,b);
+        goback(end);
     }
-    cout << "type q to quit or type y to continue" << endl;
-    cin >> end;
+    
     }
 
     else{
