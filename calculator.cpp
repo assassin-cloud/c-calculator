@@ -17,8 +17,9 @@ void welcome(){
     cout << "Type the number of the function you want:" << endl;
 }
 
-void goback(string i){
+void goback(){
     cout << endl;
+    string i;
     cout << "Type anything to back: " << endl;
     cin >> i;
     welcome();
@@ -46,7 +47,7 @@ void subtraction(double x, double y){
 
 int main() {
     double a, b;
-    string user, pass, end;
+    string user, pass;
     double calc;
 
     cout << "Input username: " << endl;
@@ -77,7 +78,7 @@ int main() {
         cout << "answer: " << (*p)*(*p) << endl;
         delete p;
         p = nullptr;
-        goback(end);
+        goback();
     }
 
     else if(calc == 6){
@@ -87,7 +88,7 @@ int main() {
         cout << "answer: " << (*ptr)*(*ptr)*(*ptr) << endl;
         delete ptr;
         ptr = nullptr;
-        goback(end);
+        goback();
     }
 
     else if(calc == 7){
@@ -104,12 +105,12 @@ int main() {
        
     if(calc == 3) {
         addition(a,b);
-        goback(end);
+        goback();
     }
 
     else if(calc == 4){
         subtraction(a,b);
-        goback(end);
+        goback();
     }
 
     else if(calc == 2){
@@ -120,13 +121,13 @@ int main() {
         }
         else{
         division(a,b);
-        goback(end);
+        goback();
         }
     }
 
     else if(calc == 1){
         Multiplication(a,b);
-        goback(end);
+        goback();
     }
     
     }
