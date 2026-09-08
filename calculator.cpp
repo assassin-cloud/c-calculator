@@ -103,13 +103,13 @@ int main() {
             }
 
             else if(calc == 5){
+                userinput(a,b);
                 if(b == 0) {
         	        cout << "Can't divide by zero" << endl;
         	        cout << endl;
                     goback();
                 }
                 else{
-                    userinput(a,b);
                     division(a,b);
                     goback();
                 }
@@ -127,21 +127,27 @@ int main() {
                 total = 0;
                 cout << "How many numbers do you want to average" << endl;
                 cin >> size;
-                double* arrayptr = new double[size];
-                for(int i{};i<size;i++){
-                    cout << "Type " << i+1 << " number" << endl;
-                    cin >> arrayptr[i];
+                if(size <= 0){
+                    cout << "Invalid input!" << endl;
+                    goback();
                 }
-                for(int i{};i<size;i++){
-                    total += arrayptr[i];
+                else{
+                    double* arrayptr = new double[size];
+                    for(int i{};i<size;i++){
+                        cout << "Type " << i+1 << " number" << endl;
+                        cin >> arrayptr[i];
+                    }
+                    for(int i{};i<size;i++){
+                        total += arrayptr[i];
+                    }
+                    cout << "Sum of the numbers: " << total << endl;
+                    average = total/size;
+                    cout << endl;
+                    cout << "Average: " << average;
+                    delete [] arrayptr;
+                    arrayptr = nullptr;
+                    goback();
                 }
-                cout << "Sum of the numbers: " << total << endl;
-                average = total/size;
-                cout << endl;
-                cout << "Average: " << average;
-                delete [] arrayptr;
-                arrayptr = nullptr;
-                goback();
             }
 
             else if(calc == 8){
