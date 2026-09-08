@@ -13,7 +13,7 @@ void welcome(int& calc){
     cout << "3. Addition" << endl;
     cout << "4. Subtraction" << endl;
     cout << "5. Division" << endl;
-    cout << "6. Addition" << endl;
+    cout << "6. Multiplication" << endl;
     cout << "7. Average" << endl;
     cout << "8. Exit" << endl;
     cout << endl;
@@ -122,6 +122,7 @@ int main() {
             }
 
             else if(calc == 7){
+                average = 0;
                 cout << "How many numbers do you want to average" << endl;
                 cin >> size;
                 double* arrayptr = new double[size];
