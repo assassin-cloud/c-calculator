@@ -123,6 +123,8 @@ int main() {
 
             else if(calc == 7){
                 average = 0;
+                size = 0;
+                total = 0;
                 cout << "How many numbers do you want to average" << endl;
                 cin >> size;
                 double* arrayptr = new double[size];
