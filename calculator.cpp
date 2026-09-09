@@ -33,7 +33,6 @@ void goback(){
     string i;
     cout << "Type anything to back: " << endl;
     cin >> i;
-    welcome(calc);
 }
 
 void Multiplication(double x, double y){
@@ -136,8 +135,6 @@ int main() {
                     for(int i{};i<size;i++){
                         cout << "Type " << i+1 << " number" << endl;
                         cin >> arrayptr[i];
-                    }
-                    for(int i{};i<size;i++){
                         total += arrayptr[i];
                     }
                     cout << "Sum of the numbers: " << total << endl;
