@@ -4,9 +4,9 @@ using namespace std;
 int calc;
 
 void welcome(int& calc){
-    cout << "|==========|" << endl;
-    cout << "|CALCULATOR|" << endl;
-    cout << "|==========|" << endl;
+    cout << "=================" << endl;
+    cout << "   CALCULATOR    " << endl;
+    cout << "=================" << endl;
     cout << endl;
     cout << "1. Square" << endl;
     cout << "2. Cube" << endl;
@@ -14,8 +14,9 @@ void welcome(int& calc){
     cout << "4. Subtraction" << endl;
     cout << "5. Division" << endl;
     cout << "6. Multiplication" << endl;
-    cout << "7. Average" << endl;
-    cout << "8. Exit" << endl;
+    cout << "7. Number statistics" << endl;
+    cout << "8. Average" << endl;
+    cout << "9. Exit" << endl;
     cout << endl;
     cout << "Type the number of the function you want:" << endl;
     cin >> calc;
@@ -55,11 +56,91 @@ void subtraction(double x, double y){
     cout << x-y << endl;
 }
 
+double square(){
+    double userinput {};
+    cout << "Enter number:" << endl;
+    cin >> userinput;
+    cout << "Solution:" << endl;
+    return userinput*userinput;
+}
+
+double cube(){
+    double userinput {};
+    cout << "Enter number:" << endl;
+    cin >> userinput;
+    cout << "Solution:" << endl;
+    return userinput*userinput*userinput;
+}
+
+void numberstatistics(){
+    int size {};
+    cout << "How many number do you want to analyze or get statistics: " << endl;
+    cin >> size;
+    if(size<=0){
+        cout << "Invalid input!" << endl;
+    }
+    else{
+        double *p = new double[size];
+        for(int i=0;i<size;i++){
+            cout << "Enter " << i+1 << " number: " << endl;
+            cin >> p[i];
+        }
+        cout << "Numbers you entered: " << endl;
+        for(int i=0;i<size;i++){
+            cout << p[i] << " ,";
+        }
+        double largest { p[0] };
+        double smallest { p[0] };
+        double sum {};
+        double average {};
+        for(int i=0;i<size;i++){
+            if(largest<p[i]){
+                largest = p[i];
+            }
+            if(smallest>p[i]){
+                smallest = p[i];
+            }
+        sum += p[i];
+        }
+        cout << endl;
+        cout << "Largest: " << largest << endl;
+        cout << "Smallest: " << smallest << endl;
+        cout << "Sum: " << sum << endl;
+        cout << "Average: " << sum/size << endl;
+        delete[] p;
+        p = nullptr;
+    }
+}
+
+void averageofnumbers(){
+    int size {};
+    cout << "How many numbers do you want to get the average of:" << endl;
+    cin >> size;
+    if(size<=0){
+        cout << "Invalid Input!" << endl;
+    }
+    else{
+        double *p = new double[size];
+        double sum {};
+        for(int i=0;i<size;i++){
+            cout << "Input " << i+1 << " number:" << endl;
+            cin >> p[i];
+            sum += p[i];
+        }
+        cout << "Numbers you Entered: " << endl;
+        for(int i=0;i<size;i++){
+            cout << p[i] << " ,";
+        }
+        cout << endl;
+        cout << "Sum: " << sum << endl;
+        cout << "Average: " << sum/size << endl;
+        delete[] p;
+        p = nullptr;
+    }
+}
+
 int main() {
     double a, b;
-    double total {};
-    int size;
-    double average {};
     while (true) {
         welcome(calc);
         if(cin.fail()){
@@ -69,23 +150,12 @@ int main() {
         }
         else{   
             if(calc == 1){
-                double *p = new double;
-                cout << "Input number: ";
-                cin >> *p;
-                cout << endl;
-                cout << "answer: " << (*p)*(*p) << endl;
-                delete p;
-                p = nullptr;
+                cout << square() << endl;
                 goback();
             }
 
             else if(calc == 2){
-                double *ptr = new double;
-                cout << "input number: ";
-                cin >> *ptr;
-                cout << "answer: " << (*ptr)*(*ptr)*(*ptr) << endl;
-                delete ptr;
-                ptr = nullptr;
+                cout << cube() << endl;
                 goback();
             }
 
@@ -121,33 +191,16 @@ int main() {
             }
 
             else if(calc == 7){
-                average = 0;
-                size = 0;
-                total = 0;
-                cout << "How many numbers do you want to average" << endl;
-                cin >> size;
-                if(size <= 0){
-                    cout << "Invalid input!" << endl;
-                    goback();
-                }
-                else{
-                    double* arrayptr = new double[size];
-                    for(int i{};i<size;i++){
-                        cout << "Type " << i+1 << " number" << endl;
-                        cin >> arrayptr[i];
-                        total += arrayptr[i];
-                    }
-                    cout << "Sum of the numbers: " << total << endl;
-                    average = total/size;
-                    cout << endl;
-                    cout << "Average: " << average;
-                    delete [] arrayptr;
-                    arrayptr = nullptr;
-                    goback();
-                }
+                numberstatistics();
+                goback();
             }
 
             else if(calc == 8){
+                averageofnumbers();
+                goback();
+            }
+
+            else if(calc == 9){
                 break;
             }
 
