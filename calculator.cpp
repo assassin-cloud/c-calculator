@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int calc;
-
 void welcome(int& calc){
     cout << "=================" << endl;
     cout << "   CALCULATOR    " << endl;
@@ -141,6 +139,7 @@ void averageofnumbers(){
 
 int main() {
     double a, b;
+    int calc {};
     while (true) {
         welcome(calc);
         if(cin.fail()){
