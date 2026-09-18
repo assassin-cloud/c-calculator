@@ -12,9 +12,8 @@ void welcome(int& calc){
     cout << "4. Subtraction" << endl;
     cout << "5. Division" << endl;
     cout << "6. Multiplication" << endl;
-    cout << "7. Number statistics" << endl;
-    cout << "8. Average" << endl;
-    cout << "9. Exit" << endl;
+    cout << "7. Average" << endl;
+    cout << "8. Exit" << endl;
     cout << endl;
     cout << "Type the number of the function you want:" << endl;
     cin >> calc;
@@ -68,46 +67,6 @@ double cube(){
     cin >> userinput;
     cout << "Solution:" << endl;
     return userinput*userinput*userinput;
-}
-
-void numberstatistics(){
-    int size {};
-    cout << "How many number do you want to analyze or get statistics: " << endl;
-    cin >> size;
-    if(size<=0){
-        cout << "Invalid input!" << endl;
-    }
-    else{
-        double *p = new double[size];
-        for(int i=0;i<size;i++){
-            cout << "Enter " << i+1 << " number: " << endl;
-            cin >> p[i];
-        }
-        cout << "Numbers you entered: " << endl;
-        for(int i=0;i<size;i++){
-            cout << p[i] << " ,";
-        }
-        double largest { p[0] };
-        double smallest { p[0] };
-        double sum {};
-        double average {};
-        for(int i=0;i<size;i++){
-            if(largest<p[i]){
-                largest = p[i];
-            }
-            if(smallest>p[i]){
-                smallest = p[i];
-            }
-        sum += p[i];
-        }
-        cout << endl;
-        cout << "Largest: " << largest << endl;
-        cout << "Smallest: " << smallest << endl;
-        cout << "Sum: " << sum << endl;
-        cout << "Average: " << sum/size << endl;
-        delete[] p;
-        p = nullptr;
-    }
 }
 
 void averageofnumbers(){
@@ -190,16 +149,11 @@ int main() {
             }
 
             else if(calc == 7){
-                numberstatistics();
-                goback();
-            }
-
-            else if(calc == 8){
                 averageofnumbers();
                 goback();
             }
 
-            else if(calc == 9){
+            else if(calc == 8){
                 break;
             }
 
