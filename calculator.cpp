@@ -33,45 +33,45 @@ void goback(){
     cin >> i;
 }
 
-void Multiplication(double x, double y){
+double Multiplication(double x, double y){
     cout << "Solution:" << endl;
-    cout << x*y << endl;
+    return x*y;
 }
 
-void division(double x, double y){
+double division(double x, double y){
     cout << "Solution:" << endl;
-    cout << x/y << endl;
+    return x/y;
 }
 
-void addition(double x, double y){
+double addition(double x, double y){
     cout << "Solution:" << endl;
-    cout << x+y << endl;
+    return x+y;
 }
 
-void subtraction(double x, double y){
+double subtraction(double x, double y){
     cout << "Solution:" << endl;
-    cout << x-y << endl;
+    return x-y;
 }
 
 double square(){
-    double userinput {};
     cout << "Enter number:" << endl;
+    double userinput {};
     cin >> userinput;
     cout << "Solution:" << endl;
     return userinput*userinput;
 }
 
 double cube(){
-    double userinput {};
     cout << "Enter number:" << endl;
+    double userinput {};
     cin >> userinput;
     cout << "Solution:" << endl;
     return userinput*userinput*userinput;
 }
 
-void averageofnumbers(){
-    int size {};
+double averageofnumbers(){
     cout << "How many numbers do you want to get the average of:" << endl;
+    int size {};
     cin >> size;
     if(size<=0){
         cout << "Invalid Input!" << endl;
@@ -84,20 +84,17 @@ void averageofnumbers(){
             cin >> p[i];
             sum += p[i];
         }
-        cout << "Numbers you Entered: " << endl;
-        for(int i=0;i<size;i++){
-            cout << p[i] << " ,";
-        }
-        cout << endl;
-        cout << "Sum: " << sum << endl;
-        cout << "Average: " << sum/size << endl;
         delete[] p;
         p = nullptr;
+        cout << "Sum:" << endl;
+        return sum;
+        cout << "Average:" << endl;
+        return sum/size;
     }
 }
 
 int main() {
-    double a, b;
+    double a {}, b {};
     int calc {};
     while (true) {
         welcome(calc);
@@ -119,13 +116,13 @@ int main() {
 
             else if(calc == 3) {
                 userinput(a,b);
-                addition(a,b);
+                cout << addition(a,b) << endl;
                 goback();
             }
 
             else if(calc == 4){
                 userinput(a,b);
-                subtraction(a,b);
+                cout << subtraction(a,b) << endl;
                 goback();
             }
 
@@ -133,23 +130,22 @@ int main() {
                 userinput(a,b);
                 if(b == 0) {
         	        cout << "Can't divide by zero" << endl;
-        	        cout << endl;
                     goback();
                 }
                 else{
-                    division(a,b);
+                    cout << division(a,b) << endl;
                     goback();
                 }
             }
 
             else if(calc == 6){
                 userinput(a,b);
-                Multiplication(a,b);
+                cout << Multiplication(a,b) << endl;
                 goback();
             }
 
             else if(calc == 7){
-                averageofnumbers();
+                cout << averageofnumbers() << endl;
                 goback();
             }
 
